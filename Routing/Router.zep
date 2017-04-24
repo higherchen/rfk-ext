@@ -57,7 +57,10 @@ class Router
         } else {
             var path, exp, name, action, params = [], cnt, prefix = this->prefix;
             let path = request->getPath();
-            if prefix != "" && strpos(path, prefix) === 0 {
+            if prefix != "" {
+                if (strpos(path, prefix) !== 0) {
+                    return false;
+                }
                 let path = substr(path, strlen(prefix));
             }
 

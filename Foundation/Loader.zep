@@ -24,6 +24,9 @@ class Loader
         if !empty block {
             let path .= "/".implode("/", block);
         }
-        require path."/".truename.".php";
+
+        if (file_exists(path."/".truename.".php")) {
+            require path."/".truename.".php";
+        }
     }
 }
