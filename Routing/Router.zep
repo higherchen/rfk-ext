@@ -69,7 +69,11 @@ class Router
 
             let name = "index", action = "index", cnt = count(exp);
             if cnt == 1 {
-                let name = exp[0];
+                if is_numeric(exp[0]) {
+                    let name = "index", action = "handle", params[] = exp[0]
+                } else {
+                    let name = exp[0]
+                }
             }
             if cnt > 1 {
                 let name = exp[0], action = exp[1];
